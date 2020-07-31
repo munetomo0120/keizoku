@@ -43,6 +43,7 @@
         %td{witdh: "80px"}
           = link_to post_path(post.id), method: :delete, data: {confirm: "削除しますか？"} do
             削除
+= paginate @posts
 %p
   = link_to "#" do
     ※ページの上部へ戻る &gt;&gt;

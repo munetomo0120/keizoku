@@ -482,6 +482,15 @@ body {
   margin: 0;
 }
 
+.alert {
+  color: #666;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  background: rgba(255,235,232,0.5);
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px;
+}
+
 // .gradient {
 //   width: 100%;
 //   height: 150px;
@@ -520,3 +529,4 @@ body {
 //   }
 
 // }
+

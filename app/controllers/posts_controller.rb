@@ -2,13 +2,16 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show, :search]
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
+    @posts = Post.includes(:user).order("created_at DESC").page(params[:page]).per(10)
   end
   def new
     @post = Post.new
   end
   def create
-    Post.create(post_params)
+    @post = Post.create(post_params)
+    unless @post.save
+      render "new"
+    end
   end
   def destroy
     post = Post.find(params[:id])
@@ -18,8 +21,11 @@ class PostsController < ApplicationController
     
   end
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    unless @post.save
+      render "edit"
+    end
   end
   def show
     @comment = Comment.new

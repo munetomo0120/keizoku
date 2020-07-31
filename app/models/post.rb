@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  validates :text, presence: true
+  validates :text, presence: true, length: {minimum: 1, maximum: 140}
 
   mount_uploader :image, ImageUploader 
   belongs_to :user

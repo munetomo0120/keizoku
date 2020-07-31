@@ -25,6 +25,8 @@
             ホーム
           = link_to "/users/#{current_user.id}" do
             マイページ
+          = link_to edit_user_path(current_user) do
+            ユーザー情報変更
           = link_to destroy_user_session_path, method: :delete do
             ログアウト
           = link_to new_post_path do
