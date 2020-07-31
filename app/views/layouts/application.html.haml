@@ -7,7 +7,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    -# = javascript_include_tag 'application' application.jsを作ってから
+    -# = javascript_include_tag 'application'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     
@@ -17,26 +17,26 @@
       %h3.display-4
         KEIZOKU
       = render 'layouts/notifications'
-      -# - if user_signed_in? ログイン機能がついてから
-      -#   %p
-      -#     username: #{current_user.name}
-      -#     %br/
-      -#     = link_to root_path do
-      -#       ホーム
-      -#     = link_to "/users/#{current_user.id}" do
-      -#       マイページ
-      -#     = link_to destroy_user_session_path, method: :delete do
-      -#       ログアウト
-      -#     = link_to new_post_path do
-      -#       投稿する
-      -# - else
-      -#   %p
-      -#     = link_to root_path do
-      -#       ホーム
-      -#     = link_to new_user_session_path do
-      -#       ログイン
-      -#     = link_to new_user_registration_path do
-      -#       新規登録
+      - if user_signed_in?
+        %p
+          username: #{current_user.name}
+          %br/
+          = link_to root_path do
+            ホーム
+          = link_to "/users/#{current_user.id}" do
+            マイページ
+          = link_to destroy_user_session_path, method: :delete do
+            ログアウト
+          = link_to new_post_path do
+            投稿する
+      - else
+        %p
+          = link_to root_path do
+            ホーム
+          = link_to new_user_session_path do
+            ログイン
+          = link_to new_user_registration_path do
+            新規登録
       = yield
     %footer
       %p

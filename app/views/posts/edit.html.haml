@@ -1,0 +1,9 @@
+%h1.display-4.text-primary
+  Edit Tweet
+%p
+  編集する内容を入力してください
+= form_with(model: @post, local: true) do |f|
+  = render partial: "form", locals: { f: f }
+%p
+  = link_to "/" do
+    &lt;&lt;トップページに戻る

@@ -1,0 +1,104 @@
+%h1.display-4.text-primary
+  Tweet details
+%p
+  このツイートの詳細内容です。
+
+%h3
+  いいね件数: #{@post.likes.count}
+- if current_user.already_liked?(@post)
+  = button_to 'いいねを取り消す', post_like_path(@post), method: :delete, class: "btn btn-outline-primary"
+- else
+  = button_to 'いいね', post_likes_path(@post),class: "btn btn-outline-primary"
+%h2 いいねしたユーザー
+- @post.liked_users.each do |user|
+  %li= user.name
+
+%table.table
+  %tr
+    %th
+      ID
+    %th
+      Name
+    %th
+      Text
+    %th
+      Image
+    %th
+      Created_at
+    %th{colspan: "2"}
+  %tr
+    %td{width: "35px"}
+      = @post.id
+    %td{width: "100px"}
+      = @post.user.name
+    %td{width: "200px"}
+      = @post.text
+    %td
+      = image_tag @post.image_url(:thumb) if @post.image.present?
+    %td
+      = @post.created_at.to_s(:datetime)
+    - if user_signed_in? && current_user.id == @post.user_id
+      %td{width: "80px"}
+        = link_to edit_post_path(@post.id) do
+          編集
+      %td{witdh: "80px"}
+        = link_to post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"} do
+          削除
+- if current_user
+  %p
+    コメントを入力してください
+  = form_with(model: [@post, @comment], local: true, id: "new_comment") do |f|
+    .form-group
+      = label_tag("text", "Comment")
+      = f.text_area("text", {rows: 2, class: "form-control textbox"})
+    .form-group
+      = label_tag("image", "Image URL")
+      = f.file_field("image", {class: "form-control-file imagebox"})
+    = submit_tag("SEND", {class: "btn btn-primary form__submit"})
+- else
+  %p
+    >>コメントする場合はログインしてください
+%p
+  コメント一覧
+- if @comments
+  %table.table
+    %tr
+      %th
+        ID
+      %th
+        Name
+      %th
+        Text
+      %th
+        Image
+      %th
+        Created_at
+      %th{colspan: "2"}
+    - @comments.each do |comment|
+      %tr
+        %td{width: "35px"}
+          = comment.id
+        %td{width: "100px"}
+          = link_to "/users/#{comment.user.id}" do
+            = comment.user.name
+        %td{width: "200px"}
+          = comment.text
+        %td
+          = image_tag comment.image_url(:thumb) if comment.image.present?
+        %td
+          = comment.created_at.to_s(:datetime)
+        - if user_signed_in? && current_user.id == comment.user_id
+          -# %td{width: "80px"}
+          -#   = link_to edit_post_path(comment.id) do
+          -#     編集
+          %td{witdh: "80px"}
+            = link_to [@post, comment], method: :delete, data: {confirm: "削除しますか？"} do
+              削除
+
+
+%p
+  = link_to "#" do
+    ※ページの上部へ戻る &gt;&gt;
+-# %p
+-#   = link_to "/posts/new" do
+-#     ※新しいTweetを入力 &gt;&gt;

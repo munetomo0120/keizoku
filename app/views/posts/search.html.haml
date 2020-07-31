@@ -1,7 +1,7 @@
 %h1.display-4.text-primary
-  Tweet List
+  Search Result
 %p
-  現在、登録されているデータの一覧です。
+  検索結果の一覧です。
 %nav.navbar.navbar-light.bg-light
   = form_with(url: search_posts_path, local: true, method: :get, class: "form-inline") do |f|
     = f.text_field("keyword", {placeholder: "Keyword", class: "form-control mr-sm-2"})
@@ -26,9 +26,6 @@
       %td{width: "100px"}
         = link_to "/users/#{post.user.id}" do
           = post.user.name
-        %br/
-        = icon('far', 'heart', class: "text-danger")
-        #{post.liked_users.count}
       %td{width: "200px"}
         = link_to "/posts/#{post.id}" do
           = post.text
@@ -46,3 +43,9 @@
 %p
   = link_to "#" do
     ※ページの上部へ戻る &gt;&gt;
+-# :javascript
+-#   function delData(num) {
+-#     if(confirm('このデータを削除しますか？')) {
+-#       document.location = "/posts/" + num;
+-#     }
+-#   }

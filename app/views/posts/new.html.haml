@@ -1,0 +1,9 @@
+%h1.display-4.text-primary
+  New Tweet
+%p
+  登録するTweetを入力してください
+= form_with(model: @post, local: true) do |f|
+  = render partial: "form", locals: { f: f }
+%p
+  = link_to "/" do
+    &lt;&lt;トップページに戻る
