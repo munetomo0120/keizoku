@@ -1,0 +1,51 @@
+%h1.display-4.text-primary
+  Search Result
+%p
+  検索結果の一覧です。
+%nav.navbar.navbar-light.bg-light
+  = form_with(url: search_posts_path, local: true, method: :get, class: "form-inline") do |f|
+    = f.text_field("keyword", {placeholder: "Keyword", class: "form-control mr-sm-2"})
+    = submit_tag("Search", {class: "btn btn-outline-primary my-2 my-sm-0"})
+%table.table
+  %tr
+    %th
+      ID
+    %th
+      Name
+    %th
+      Text
+    %th
+      Image
+    %th
+      Created_at
+    %th{colspan: "2"}
+  - @posts.each do |post|
+    %tr
+      %td{width: "35px"}
+        = post.id
+      %td{width: "100px"}
+        = link_to "/users/#{post.user.id}" do
+          = post.user.name
+      %td{width: "200px"}
+        = link_to "/posts/#{post.id}" do
+          = post.text
+      %td
+        = image_tag post.image_url(:thumb) if post.image.present?
+      %td
+        = post.created_at.to_s(:datetime)
+      - if user_signed_in? && current_user.id == post.user_id
+        %td{width: "80px"}
+          = link_to edit_post_path(post.id) do
+            編集
+        %td{witdh: "80px"}
+          = link_to post_path(post.id), method: :delete, data: {confirm: "削除しますか？"} do
+            削除
+%p
+  = link_to "#" do
+    ※ページの上部へ戻る &gt;&gt;
+-# :javascript
+-#   function delData(num) {
+-#     if(confirm('このデータを削除しますか？')) {
+-#       document.location = "/posts/" + num;
+-#     }
+-#   }

@@ -1,0 +1,532 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-image: url("background.jpg");
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+}
+
+// .Wrapper {
+//   height: 100vh;
+//   width: 100vw;
+//   // ヘッダー部分
+//   .Header {
+//     height: 50px;
+//     width: 100vw;
+//     padding: 0 4%;
+//     background-color: lightblue;
+//     display: flex;
+//     .Left {
+//       height: 100%;
+//       width: 100%;
+//       background-color: #fff;
+//       &__btn {
+//         height: 100%;
+//         width: 150px;
+//         background-color: lightseagreen;
+//         text-align: center;
+//         line-height: 50px;
+//       }
+//     }
+//     .Right {
+//       width: 100%;
+//       height: 100%;
+//       background-color: lightsalmon;
+//       display: flex;
+//       justify-content: flex-end;
+//       &__btn {
+//         height: 100%;
+//         width: 150px;
+//         background-color: lightseagreen;
+//         text-align: center;
+//         line-height: 50px;
+//       }
+//     }
+//   }
+//   // メイン部分
+//   .Main {
+//     height: calc(100% - 100px);
+//     background-color: lightcyan;
+//     display: flex;
+//     padding: 0 4%;
+//     // サイドバー部分
+//     .Left {
+//       width: 25vw;
+//       background-color: lightgray;
+//       .Top_content {
+//         height: 190px;
+//         width: 100%;
+//         background-color: lightcoral;
+//         display: flex;
+//         padding: 20px;
+//         .Image {
+//           height: 150px;
+//           width: 150px;
+//           background-color: blue;
+//           border-radius: 50%;
+//           margin-right: 20px;
+//         }
+//         .Profile {
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: space-around;
+//           &__name {
+//             border-bottom: 1px solid #ddd;
+//           }
+//           &__prefecture {
+//             font-size: 12px;
+//           }
+//           &__point {
+//             font-size: 12px;
+//           }
+//           &__rank {
+//             font-size: 12px;
+//           }
+//         }
+//       }
+//       .Bottom_content {
+//         height: calc(100% - 190px);
+//         width: 100%;
+//         background-color: lightyellow;
+//         padding: 20px;
+//         &__place_name {
+//           margin-bottom: 20px;
+//         }
+//         &__place_map {
+//           height: calc(100% - 50px);
+//           width: 100%;
+//           background-color: green;
+//         }
+//       }
+//     }
+//     // 投稿部分
+//     .Center {
+//       width: 50vw;
+//       border-left: 1px solid #ddd;
+//       border-right: 1px solid #ddd;
+//       background-color: lightgreen;
+//       overflow: scroll;
+//       .Content {
+//         width: 100%;
+//         display: flex;
+//         margin-top: 20px;
+//         padding-bottom: 20px;
+//         background-color: lightblue;
+//         .Left {
+//           width: 50px;
+//           .Image {
+//             height: 50px;
+//             width: 50px;
+//             background-color: blue;
+//             border-radius: 50%;
+//           }
+//         }
+//         .Right {
+//           width: calc(100% - 50px);
+//           background-color: lightsalmon;
+//           padding: 0 20px;
+//           .Top {
+//             display: flex;
+//             margin-bottom: 10px;
+//             &__name {
+//               width: 20%;
+//               margin-right: 20px;
+//               border-bottom: 1px solid #ddd;
+//               background-color: lightgoldenrodyellow;
+//             }
+//             &__like_btn {
+//               width: 5%;
+//               background-color: lightcyan;
+//             }
+//             &__show_btn {
+//               width: 5%;
+//               background-color: lightyellow;
+//             }
+//             &__date {
+//               background-color: lightgrey;
+//             }
+//           }
+//           .Middle {
+//             background-color: lightpink;
+//             .Text {
+//               background-color: lightgoldenrodyellow;
+//             }
+//           }
+//           .Bottom {
+//             width: 100%;
+//             height: 400px;
+//             background-color: lightseagreen;
+//             .Image {
+//               width: 100%;
+//               height: 400px;
+//               background-color: aquamarine;
+//               .Post_image {
+//                 max-width: 100%;
+//                 min-height: 100%;
+//                 border-radius: 5%;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     // 右側サイドバー
+//     .Right {
+//       width: 25vw;
+//       padding: 20px;
+//       background-color: lightpink;
+//       .Top_content {
+//         height: 40px;
+//         text-align: center;
+//         background-color: bisque;
+//       }
+//       .Middle_content {
+//         height: calc(100% - 80px);
+//         background-color: burlywood;
+//         .First {
+//           height: 20%;
+//           background-color: darkkhaki;
+//           display: flex;
+          
+//           padding: 20px 0;
+//           &__rank {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             &--icon {
+//             }
+//           }
+//           &__name {
+//             height: 100%;
+//             width: 70%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: chocolate;
+//           }
+//           &__show_member_btn {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             text-align: center;
+//             &--icon {
+//             }
+//           }
+//         }
+//         .Second {
+//           height: 20%;
+//           background-color: darkkhaki;
+//           display: flex;
+          
+//           padding: 20px 0;
+//           &__rank {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             &--icon {
+//             }
+//           }
+//           &__name {
+//             height: 100%;
+//             width: 70%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: chocolate;
+//           }
+//           &__show_member_btn {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             text-align: center;
+//             &--icon {
+//             }
+//           }
+//         }
+//         .Third {
+//           height: 20%;
+//           background-color: darkkhaki;
+//           display: flex;
+          
+//           padding: 20px 0;
+//           &__rank {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             &--icon {
+//             }
+//           }
+//           &__name {
+//             height: 100%;
+//             width: 70%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: chocolate;
+//           }
+//           &__show_member_btn {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             text-align: center;
+//             &--icon {
+//             }
+//           }
+//         }
+//         .Fourth {
+//           height: 20%;
+//           background-color: darkkhaki;
+//           display: flex;
+          
+//           padding: 20px 0;
+//           &__rank {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             &--icon {
+//             }
+//           }
+//           &__name {
+//             height: 100%;
+//             width: 70%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: chocolate;
+//           }
+//           &__show_member_btn {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             text-align: center;
+//             &--icon {
+//             }
+//           }
+//         }
+//         .Fifth {
+//           height: 20%;
+//           background-color: darkkhaki;
+//           display: flex;
+          
+//           padding: 20px 0;
+//           &__rank {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             &--icon {
+//             }
+//           }
+//           &__name {
+//             height: 100%;
+//             width: 70%;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             background-color: chocolate;
+//           }
+//           &__show_member_btn {
+//             height: 100%;
+//             width: 15%;
+//             background-color: #fff;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+//             text-align: center;
+//             &--icon {
+//             }
+//           }
+//         }
+//       }
+//       .Bottom_content {
+//         height: 40px;
+//         background-color: darkcyan;
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         .User_search_btn {
+//           width: 200px;
+//           text-align: center;
+//           background-color: darksalmon;
+//         }
+//       }
+//     }
+//     // new画面
+//     .Post_contents {
+//       width: 600px;
+//       margin: 0 auto;
+//       padding: 20px;
+//       background-color: antiquewhite;
+//       .Top {
+
+//       }
+//     }
+//   }
+//   // フッター部分
+//   .Footer {
+//     height: 50px;
+//     line-height: 50px;
+//     background-color: lightgoldenrodyellow;
+//     text-align: center;
+//   }
+// }
+
+// form input,
+// form textarea {
+//   width: 100%;
+//   margin: 5px 0 15px;
+//   padding: 10px;
+//   border: 1px solid #D8D8D8;
+//   border-radius: 5px;
+//   font-family: "游ゴシック", "YuGothic";
+// }
+
+// form input[type="submit"] {
+//   background-color: #57C3E9;
+//   border-radius: 5px;
+//   color: #fff;
+//   border: 0;
+//   font-size: 18px;
+// }
+
+// form input[type="submit"]:hover {
+//   background-color: #84d3ef;
+// }
+
+// h3 {
+//   margin: 0 0 20px;
+//   text-align: center;
+//   font-weight: normal;
+//   font-size: 20px;
+//   color: #666;
+// }
+
+// .border_bottom_btn {
+//   width: 100%;
+//   position: relative;
+//   display: inline-block;
+//   color: #1B1B1B;
+//   text-decoration: none;
+// }
+// .border_bottom_btn:hover {
+//   cursor: pointer;
+//   text-decoration: none;
+// }
+// .border_bottom_btn::after {
+//   position: absolute;
+//   bottom: -8px;
+//   left: 0;
+//   content: '';
+//   width: 100%;
+//   height: 2px;
+//   background: #333;
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: .3s;
+// }
+// .border_bottom_btn:hover::after {
+//   bottom: -4px;
+//   opacity: 1;
+//   visibility: visible;
+// }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+input,
+body {
+  line-height: 1.57;
+  letter-spacing: 0.15em;
+  font-size: 16px;
+  color: #666;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  margin: 0;
+}
+
+.alert {
+  color: #666;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  background: rgba(255,235,232,0.5);
+  text-align: center;
+  border:2px solid #990000;
+  padding:12px;
+}
+
+// .gradient {
+//   width: 100%;
+//   height: 150px;
+//   background: linear-gradient(
+//     to top,
+//     #fff 0%,
+//     #fff 15%,
+//     #eee 35%,
+//     #ddd 52%,
+//     #ccc 71%,
+//     #bbb 87%,
+//     #aaa 100%
+//   );
+// }
+
+// .Return {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   height: 200px;
+//   &__btn {
+//     padding: 8px 20px;
+//     width: 150px;
+//     font-size: 14px;
+//     border: 2px solid #57C3E9;
+//     color: #57C3E9;
+//     font-weight: bold;
+//     text-align: center;
+//     border-radius: 3px;
+//     display: inline-block;
+//   }
+  
+//   &__btn:hover {
+//     border-color: #9bdbf2;
+//     color: #9bdbf2;
+//   }
+
+// }
+

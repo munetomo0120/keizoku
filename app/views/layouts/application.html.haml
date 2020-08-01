@@ -2,10 +2,44 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{href: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css", rel: "stylesheet", id: "bootstrap-css"}/
     %title Keizoku
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# = javascript_include_tag 'application'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = yield
+    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    
+  %body.container.wrapper
+
+    %header
+      %h3.display-4
+        KEIZOKU
+      = render 'layouts/notifications'
+      - if user_signed_in?
+        %p
+          username: #{current_user.name}
+          %br/
+          = link_to root_path do
+            ホーム
+          = link_to "/users/#{current_user.id}" do
+            マイページ
+          = link_to edit_user_path(current_user) do
+            ユーザー情報変更
+          = link_to destroy_user_session_path, method: :delete do
+            ログアウト
+          = link_to new_post_path do
+            投稿する
+      - else
+        %p
+          = link_to root_path do
+            ホーム
+          = link_to new_user_session_path do
+            ログイン
+          = link_to new_user_registration_path do
+            新規登録
+      = yield
+    %footer
+      %p
+        Copyright STEADY 2020.
