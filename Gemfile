@@ -69,3 +69,5 @@ gem 'mini_magick'
 gem 'jquery-rails'
 
 gem 'kaminari'
+
+gem 'rails_12factor', group: :production
