@@ -6,8 +6,6 @@
   %tr
     %th
       ID
-    -# %th
-    -#   Name
     %th
       Text
     %th
@@ -19,8 +17,6 @@
     %tr
       %td{width: "35px"}
         = post.id
-      -# %td{width: "100px"}
-      -#   = post.user.name
       %td{width: "200px"}
         = link_to "/posts/#{post.id}" do
           = post.text
@@ -72,9 +68,3 @@
 %p
   = link_to "#" do
     ※ページの上部へ戻る &gt;&gt;
--# :javascript
--#   function delData(num) {
--#     if(confirm('このデータを削除しますか？')) {
--#       document.location = "/posts/" + num;
--#     }
--#   }

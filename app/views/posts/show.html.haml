@@ -88,9 +88,6 @@
         %td
           = comment.created_at.to_s(:datetime)
         - if user_signed_in? && current_user.id == comment.user_id
-          -# %td{width: "80px"}
-          -#   = link_to edit_post_path(comment.id) do
-          -#     編集
           %td{witdh: "80px"}
             = link_to [@post, comment], method: :delete, data: {confirm: "削除しますか？"} do
               削除
@@ -99,6 +96,3 @@
 %p
   = link_to "#" do
     ※ページの上部へ戻る &gt;&gt;
--# %p
--#   = link_to "/posts/new" do
--#     ※新しいTweetを入力 &gt;&gt;
