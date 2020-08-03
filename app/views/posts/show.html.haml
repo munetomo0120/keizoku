@@ -54,14 +54,14 @@
     .form-group
       = label_tag("image", "Image URL")
       = f.file_field("image", {class: "form-control-file imagebox"})
-    = submit_tag("SEND", {class: "btn btn-primary form__submit"})
+    = f.submit("SEND", {class: "btn btn-primary form__submit", method: :post})
 - else
   %p
     >>コメントする場合はログインしてください
 %p
   コメント一覧
 - if @comments
-  %table.table
+  %table.table.new_comment
     %tr
       %th
         ID
